@@ -1,0 +1,35 @@
+//媒体查询 判断是2像素比还是3像素比的设备
+//1px像素
+top-border-1px($color)
+  position relative
+  &::before
+    content ''
+    position absolute
+    z-index 200
+    left 0
+    top 0
+    width 100%
+    height 1px
+    background-color $color
+    @media only screen and (-webkit-device-pixel-ratio:2)
+      transform scaleY(.5)
+    @media only screen and (-webkit-device-pixel-ratio:3)
+      transform scaleY(.333333)
+
+// 一像素下边框
+bottom-border-1px($color)
+  position relative
+  &::before
+    content ''
+    position absolute
+    z-index 200
+    left 0
+    bottom 0
+    width 100%
+    height 1px
+    background-color $color
+    transform scaleY(0.5)
+    @media only screen and (-webkit-device-pixel-ratio:2)
+      transform scaleY(.5)
+    @media only screen and (-webkit-device-pixel-ratio:3)
+      transform scaleY(.333333)
